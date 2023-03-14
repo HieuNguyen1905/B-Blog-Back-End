@@ -4,6 +4,7 @@ const allRoutes = require('./controllers');
 const sequelize = require('./config/connection');
 //Cors is used to allow front-end connect to the back-end database (will be used latter)
 const cors = require("cors")
+var cookieParser = require("cookie-parser");
 
 // Sets up the Express App
 // =============================================================
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 3001;
 // Requiring our models for syncing
 const { User } = require('./models');
 
+app.use(cookieParser())
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
